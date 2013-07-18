@@ -8,6 +8,13 @@ for: ASD - 1307 - CSS Selectors
 */
 
 
+#yesToAlerts {
+
+	display:	none;
+
+
+}
+
 
 h1 {
 	text-align: center;
@@ -21,6 +28,10 @@ h1 {
 	
 	
 }
+
+
+
+
 
 
 .onbutton {
@@ -44,11 +55,16 @@ color: green;
 
 }
 
+
+
 #borderLine {
 
 	margin-bottom: 16px;
 
 }
+
+
+
 
 
 #browseButton {
@@ -302,7 +318,6 @@ p {
 }
 
 
-//   =================  Old Code Below  =========================
 
 
 

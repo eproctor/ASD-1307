@@ -59,6 +59,9 @@
 						<p><a href="#formPage" data-role="button" data-icon="arrow-r" data-iconpos="right">Register New Password</a></p>
 					</section>
 			
+			<section><a href="#aajjaxx">Load Remote Data from AJAX</a></section>
+			<section><a href="#xmlPage">Load Remote Data from XML</a></section>
+			
 			
 			</section>
 		
@@ -162,7 +165,7 @@
 					<form action="" method="post" id="contactsform">
 							<section>
 								<legend>Add a new Password Account</legend>
-								<!-- div><ul id="errorValidation"></ul></div -->
+ 
 								
 								<ul class="moreSpace">
 								
@@ -211,15 +214,20 @@
 							</section>
 							
 										 
+										 
+										 
+						
+										 
+										 
 							  
 							 <section data-role="fieldcontain">
 								<fieldset data-role="controlgroup">
-									 <legend class="moreSpace"><label>Send Alerts about Account:<span id="key">* </br></span><span class="blue" >(Select One)</span></label></legend>
+									 <legend class="moreSpace"><label>Send Alert about Account:<span id="key">* </br></span><span class="blue" >(Select One)</span></label></legend>
 								
-										<input type="radio" id="yesAlerts" name="alerts" value="yesAlerts" class="required"/>
+										<input type="radio" id="yesAlerts" name="yesAlerts" onclick="setSendAlerts()" value="yesAlerts" class="required"/>
 										<label for="yesAlerts">Yes - Send Alert Messages</label>
 									
-										<input type="radio" id="noAlerts" name="alerts" value="noAlerts" />
+										<input type="radio" id="noAlerts" name="yesAlerts" onclick="removeSendAlerts()"value="noAlerts" />
 										<label for="noAlerts">No - Don't Send Alert Messages</label>
 											
 												
@@ -227,28 +235,55 @@
 							</section>
 							 
 					
-							<section class="turnGreenTravel" data-role="fieldcontain">Set Timeframe to Change Password:</li>
+							<!-- section class="turnGreenTravel" data-role="fieldcontain">Set Timeframe to Change Password:</li>
 								<ul  data-role="fieldcontain">
 									<label for="changePw">From 0 to 100 Days</label>
-									<input  type="range" name="changePw" id="changePw" value="45" min="1" max="100"/><!-- span id="ratingTape">Counter</span -->
+									<input  type="range" name="changePw" id="changePw" value="45" min="1" max="100"/>
+								</ul>
+							
+							</section -->
+							
+							
+							
+							<section id="yesToAlerts" data-role="fieldcontain">
+								<ul><p>Change Password in (x) days:</p>
+									<li>
+										<label for="changePw">From 0 to 100 Days</label>
+										<input  type="range" name="changePw" id="changePw" value="45" min="1" max="100"/> 
+									</li>
+							
+									<li>
+										<label class="moreSpaceTwo" for="email" placeholder="example@email.com">Email Address for Alerts:</label>
+										<input type="email" id="email" placeholder="example@email.com"/>
+									</li>
+							
+									<li>
+										<label class="moreSpaceTwo" for="textNumber">Text Number for Alerts:</label>
+										<input type="text" name="textNumber" id="textNumber"  placeholder="xxx-xxx-xxxx"/>
+									</li>
+							
 								</ul>
 							</section>
+						
 							
 							
-							<section>			
+							
+							
+							
+							<!-- section>			
 								<ul data-role="fieldcontain">
 									<label class="moreSpaceTwo" for="email" placeholder="example@email.com">Email Address for Alerts:</label>
 									<input type="email" id="email" placeholder="example@email.com"/>
 								</ul>
-							</section>			   
+							</section -->			   
 							
 							
-							<section>
+							<!-- section>
 								<ul data-role="fieldcontain">
 									<label class="moreSpaceTwo" for="textNumber">Text Number for Alerts:</label>
 									<input type="text" name="textNumber" id="textNumber"  placeholder="xxx-xxx-xxxx"/>
 								</ul>
-							</section>		
+							</section -->		
 									
 							<section>		 
 								<ul class="moreSpaceDes">
@@ -262,7 +297,7 @@
 								
 								<input class = "ui-block-a" type="submit" value="Submit Information" data-theme="d" />
 								<ul id="displayClearLinks"><a href="#displayPage" title="Display Data"> Display Data |</a>
-									 <span><a href="#addpoc" onclick="clearData(); return false" rel="external" title="Clear Data"> Clear Data</a></span>
+									 <span><a href="#formPage" onclick="clearData(); return false" rel="external" title="Clear Data"> Clear Data</a></span>
 								</ul>
 									 
 							</section>
@@ -327,8 +362,70 @@
 	  
 	
 	
-	  
-	  
+	   <!--  ------------------------- Page 5 - Error Dialog Page ------------------------- -->
+  
+  
+			<section data-role="dialog" id="dialogboxErrors">
+				
+					<section data-role="header" data-position="fixed">
+						<h1>Missing Fields</h1>
+		
+					</section>			
+					
+					<section data-role="content">
+						<ul>
+							<li>Test Sample Form.</li>
+						</ul>
+					</section>		
+			</section>			
+		
+
+
+<!--  ------------------------- Page 7 - AJAX Function Call ------------------------- -->
+
+
+
+			<section data-role="page" id="aajjaxx" data-add-back-btn="true">
+				 <section data-role="header" data-position="fixed">
+				 
+				 <header>
+				<span><img class="logo" src="images/Trunkdrawing.png" alt="LOGO NAME AND DESCRIPTION"></span><h1>Password Management</h1>
+			  </header>
+				   
+			</section>
+	
+				<p>This page pulls Remote Data from AJAX</p> 
+				
+				
+				
+			  
+			</section>		  
+			
+			
+			
+			
+			
+	  <!--  ------------------------- Page 8 - XML Function Call ------------------------- -->
+
+
+
+			<section data-role="page" id="xmlPage" data-add-back-btn="true">
+				 <section data-role="header" data-position="fixed">
+				 
+				 <header>
+				<span><img class="logo" src="images/Trunkdrawing.png" alt="LOGO NAME AND DESCRIPTION"></span><h1>Password Management</h1>
+			  </header>
+				   
+			</section>
+	
+				<p>This page pulls Remote Data from XML</p> 
+				
+				
+				
+			  
+			</section>		  
+			
+			
 	  
 	  
 	
@@ -336,8 +433,9 @@
 	  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
 	  <script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
 	
-	  <script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script>
+	  <!-- script type="text/javascript" src="js/libs/jquery-2.0.3.min.js"></script -->
 	  <script type="text/javascript" src="js/libs/jquery.validate.min.js"></script>
+	  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/xhr/data.json"></script>
 	  <script type="text/javascript" src="js/json.js"></script>
 	  <script type="text/javascript" src="js/main.js"></script>
 	  

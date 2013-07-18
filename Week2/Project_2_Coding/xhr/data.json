@@ -1,0 +1,30 @@
+/* Name: Eugene Proctor :: Project 1 :: MIU 1306 */
+ 
+/* ========== JSON Object - Dummy Data for Testing ========== */
+
+
+
+
+
+
+
+var item = {
+			"startdate": 		"2013-01-27",
+			"accountName":	 	 "Train 1",
+			"accountId":	 	 "Paul",
+			"accountPw":	 	 "12345PW",
+			"accountType":		 "Cell Phone",
+			"textNumber":	 	 "704-456-7890",
+			"alertOption":	 	 "yesAlerts",
+			"changePw":			 "99",
+			"email":			 "paul@gmail.com",
+			"description":		 "Rare Gold Russian Coin 1800's"
+			
+			
+};
+
+
+var serializedItem = JSON.stringify(item);
+console.log(serializedItem);
+  
+  
