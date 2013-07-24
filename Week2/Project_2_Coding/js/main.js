@@ -14,7 +14,6 @@
 
 
 
-
 			 
 		/* ============================== Clear Data - Begin  ================================ */
 		
@@ -40,6 +39,99 @@
 		
 
 
+/*  =============================================================  */
+/*  ========= Add Ajax to Storage and to Screen - Begin =========  */
+/*  ============================================================== */
+
+
+/* ========== Fill Storage with Ajax Data - Begin - TESTED GOOD ========== */
+
+		var fillAjaxData = function(data) {
+	alert ("fill Ajax Function");
+
+			for (var n in data) {
+				var newId 			= Math.random(); 
+				console.log (n);
+				localStorage.setItem(newId, JSON.stringify(data[n])); 
+			
+			} //for loop n in data end
+			
+		}
+
+/* ========== Fill Storage with Ajax Data - End - TESTED GOOD ========== */		
+
+
+
+
+/* ========== */
+
+
+
+
+
+
+/* ========== Display Ajax onto Screen  - Begin ========== */
+
+
+	var displayAjax = function() {
+		alert ("Display Ajax Entries");
+		
+		$("section#ajaxDisplay").append("<ul></ul>");
+//alert ("1");
+		for (var i=0, len=localStorage.length; i<len; i++) {
+//alert ("1a");
+	
+			
+			
+			console.log (i);
+			
+			
+			var key = localStorage.key(i);
+			var correctContact = localStorage.getItem(key);
+			
+			console.log (key);
+			console.log (correctContact);
+			console.log (" ");
+
+//	alert ("2");
+		
+		//Take the string from local storage and convert it back to an object by using JSON.parse()
+			var contact = JSON.parse(correctContact);
+			
+			console.log (contact);
+			console.log (key);
+			
+			console.log (contact.startdate);
+			
+			
+			for (var n in contact) {
+			
+				console.log (n); // title of key
+				console.log (contact[n]); //value of key
+			
+//alert ("3");
+			
+				$("section#ajaxDisplay ul").append("<li>" + n + " : " + contact[n] + "</li>");
+				
+//alert ("4");
+		
+		
+			}
+		
+		} // end of for localStorage loop
+	
+		
+
+		return;
+		
+	
+	
+	}
+	
+
+
+
+/* ========== Display Ajax onto Screen  - End ========== */
 
 
 
@@ -48,6 +140,477 @@
 
 
 
+
+
+/* ========== Check for Empty Storage - Begin - TESTED GOOD ========== */
+
+var emptyStorage = function() {
+	
+	
+	if (localStorage.length===0) {
+	
+		alert ("Local Storage is Empty.  Testing Data is added");
+		console.log ("The storage is empty. Testing Data is added");
+		fillTestData();
+		displayEntries();
+		
+	} else {
+		
+		displayEntries();
+
+		} 
+}
+
+
+/* ========== Check for Empty Storage - End - TESTED GOOD ========== */
+
+
+
+
+
+
+/* ========== Check for Ajax Empty Storage - Begin - TESTED GOOD ========== */
+
+var emptyAjaxStorage = function() {
+	
+	
+	if (localStorage.length===0) {
+	
+		alert ("Local Storage is Empty.  Ajax - Testing Data is added");
+		console.log ("The storage is empty. Ajax - Testing Data is added");
+		
+		
+		$.ajax({
+			url      : "xhr/data.json",
+			type     : "GET",
+			dataType : "json",
+			success  : function(data, status) {
+				console.log(status, data);
+				fillAjaxData(data);
+				displayAjax();
+				
+			//success	: function(response){
+			//	console.log (response.languages[0].name);
+			},
+			error : function(error, parseerror){
+				console.log("Error: " + error + "\nParse Error: " + parseerror);
+			
+				}
+		});
+
+	} else {
+		
+		displayAjax();
+
+		} 
+}
+
+
+/* ========== Check for Ajax Empty Storage - End - TESTED GOOD ========== */
+
+
+
+
+
+
+
+
+
+
+/* ========== Check for XML Empty Storage - Begin - TESING  ========== */
+
+var emptyXMLStorage = function() {
+	
+	
+	if (localStorage.length===0) {
+	
+		var data = $.parseXML(data);
+	
+		var items = $(data);
+		items.find("item").each(function(){
+			var item = $(this);
+			console.log("Name: ", item.find("name"));
+		});	
+	
+	
+	
+	/*
+		alert ("Local Storage is Empty.  Ajax - Testing Data is added");
+		console.log ("The storage is empty. Ajax - Testing Data is added");
+		
+		parse=new DomParser();
+		xmlDoc=parser.parseFromString(txt,"text/xml");
+		
+	*/	
+		
+		
+		
+		
+		
+		/*
+		$.ajax({
+			url      : "xhr/data.xml",
+			type     : "GET",
+			dataType : "xml",
+			success  : function(data, status) {
+				console.log(status, data);
+				fillAjaxData(data);
+				displayAjax();
+				
+			//success	: function(response){
+			//	console.log (response.languages[0].name);
+			},
+			error : function(error, parseerror){
+				console.log("Error: " + error + "\nParse Error: " + parseerror);
+
+				}
+		
+		
+		
+		});
+		*/
+		
+	} else {
+		
+		displayAjax();
+
+		} 
+}
+
+
+/* ========== Check for XML Empty Storage - End - TESTING ========== */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+/*  =================== Add Data to Screen ======================  */
+		
+		
+		
+		
+/*	
+		
+		
+		
+			
+
+		// Add Ajax to Screen - Begin
+			for (var i=0, len=localStorage.length; i<len; i++) {
+		
+				var key = localStorage.key(i);
+				var correctContact = localStorage.getItem(key)
+				console.log (correctContact);
+				
+				
+				var contact = JSON.parse(correctContact);
+					console.log (contact);
+					console.log ("Start Date: " + contact.startdate);
+					console.log ("Start Date: " + contact[0]);
+				var hTitle = ["Date of Account Entry: ", "Name on Account: ", "User Id: ", "Password: ", "Type of Password Account: ", "Send Alert About Account: ", "Change Password in (x) days: ", "Email Address for Alerts: ", "Text Number for Alerts: ", "Description: " ];	
+				var hResult = ["startdate", "accountName", "accountId", "accountPw", "accountType", "textNumber", "alertOption", "changePw", "email", "description" ]	
+					$("section#ajaxDisplay").append("<ul></ul>");
+					
+				/*
+				var displayHere = $("#ajaxDisplay");
+					var newUl = $("<ul></ul>");
+						$(newUl).appendTo(displayHere);
+				*/	
+/*				
+					
+						for (i=0; i < hTitle.length; i++) {
+							console.log (hTitle[i]);
+							//console.log (contact[i][0]);
+							$("section#ajaxDisplay ul").append("<li>" + hTitle[i] + " : " + "contact."+ hResult[i] + "</li>");
+						console.log (n + " value: ", contact.startdate);
+						console.log (n + " value: " + contact.startdate);
+						
+						} // for loop for headers - End
+			
+					
+					
+					
+					
+					
+					
+					
+					
+					
+			} // for loop localStorage end
+			
+			
+			
+//- Good Code End		
+		
+	//	} // fillAjaxData function end
+	
+	
+*/	
+	
+	
+	/*	
+			console.log ("Start Date: " + json.startdate);
+			console.log ("Account Name: " + json.accountName);
+			console.log ("Account Id: " + json.accountId);
+			console.log ("Account Password: " + json.accountPw);
+			console.log ("Account Type: " + json.accountType);
+			console.log ("Text Number: " + json.textNumber);
+			console.log ("Alert Option: " + json.alertOption);
+			console.log ("Change Password: " + json.changePw);
+			console.log ("Email: " + json.email);
+			console.log ("Description: " + json.description);
+			console.log ("  ");
+
+			var newId 			= Math.random(); 
+			
+		/*	
+			if (newId) {
+				var key = newId;
+				console.log (key);
+		*/	
+/*			
+					//for (var i=0, len=localStorage.length; i<len; i++) {
+						localStorage.setItem(newId, json.startdate);
+						console.log (newId + " "+ json.startdate);
+						localStorage.setItem(newId, json.accountName);
+						console.log (newId + " " + json.accountName);
+						localStorage.setItem(newId, json.accountId);
+						localStorage.setItem(newId, json.accountPw);
+						localStorage.setItem(newId, json.accountType);
+						localStorage.setItem(newId, json.textNumber);
+						localStorage.setItem(newId, json.alertOption);
+						localStorage.setItem(newId, json.changePw);
+						localStorage.setItem(newId, json.email);
+						localStorage.setItem(newId, json.description);
+						var startDatePost = localStorage.getItem(newId, json.startdate);
+						console.log (newId + " "+ json.startdate);
+						console.log (startDatePost);
+						
+						var accountNamePost = localStorage.getItem(newId, json.accountName);
+						console.log (newId + " " + json.accountName);
+						console.log (accountNamePost);
+						
+						var accountIdPost = localStorage.getItem(newId, json.accountId);
+						var accountPwPost = localStorage.getItem(newId, json.accountPw);
+						var AccountTypePost = localStorage.getItem(newId, json.accountType);
+						var TextNumPost = localStorage.getItem(newId, json.textNumber);
+						var AlertOptPost = localStorage.getItem(newId, json.alertOption);
+						var ChangePwPost = localStorage.getItem(newId, json.changePw);
+						var emailPost = localStorage.getItem(newId, json.email);
+						var descriptionPost = localStorage.getItem(newId, json.description);
+						
+						
+				/* ===================== Display Content to Screen =================== */
+/*						
+					var displayHere = $("#ajaxDisplay");
+					var newUl = $("<ul></ul>");
+						$(newUl).appendTo(displayHere);
+						$("<heading><h2>AJAX Data</h2></heading>").appendTo(newUl);
+						$("<heading><h3>This page pulls remote data from AJAX</h3></heading>").appendTo(newUl);
+						
+						
+						
+					var newLi = $("<li></li>");
+						$(newLi).appendTo(newUl);
+						$(newLi).html(newId + " "+ json.startdate);
+						$(newLi).html("Start Date: " + json.startdate);
+						
+						
+					var anotherLi = $("<li></li>");
+						$(anotherLi).appendTo(newLi);
+						$(anotherLi).html(newId + " "+ json.accountName);
+						$(anotherLi).html("Account Name: " + json.accountName);
+						
+						
+					var newLi = $("<li></li>");
+						$(newLi).appendTo(anotherLi);
+						$(newLi).html(newId + " "+ json.accountId);
+						$(newLi).html("Account Id: "+ json.accountId);
+						
+						
+											
+					var anotherLi = $("<li></li>");
+						$(anotherLi).appendTo(newLi);
+						$(anotherLi).html(newId + " "+ json.accountPw);	
+						$(anotherLi).html("Account Password: " + json.accountPw);	
+						
+						
+												
+					var newLi = $("<li></li>");
+						$(newLi).appendTo(anotherLi);
+						$(newLi).html(newId + " "+ json.accountType);
+						$(newLi).html("Account Type: " + json.accountType);
+						
+						
+											
+					var anotherLi = $("<li></li>");
+						$(anotherLi).appendTo(newLi);
+						$(anotherLi).html(newId + " "+ json.textNumber);	
+						$(anotherLi).html("Text Number: " + json.textNumber);	
+						
+						
+												
+					var newLi = $("<li></li>");
+						$(newLi).appendTo(anotherLi);
+						$(newLi).html(newId + " "+ json.alertOption);
+						$(newLi).html("Alert Option: " + json.alertOption);
+						
+											
+					var anotherLi = $("<li></li>");
+						$(anotherLi).appendTo(newLi);
+						$(anotherLi).html(newId + " "+ json.changePw);	
+						$(anotherLi).html("Change Password: " + json.changePw);	
+						
+						
+																	
+					var newLi = $("<li></li>");
+						$(newLi).appendTo(anotherLi);
+						$(newLi).html(newId + " "+ json.email);
+						$(newLi).html("Email: " + json.email);
+											
+											
+					var anotherLi = $("<li></li>");
+						$(anotherLi).appendTo(newLi);
+						$(anotherLi).html(newId + " "+ json.description);	
+						$(anotherLi).html("Description: " + json.description);	
+						
+							
+						
+						
+						
+						
+						
+						//$(anotherLi).html(TextNumPost);
+						console.log (TextNumPost);
+						
+						
+					//	$(newLi).html(accountIdPost);
+					//	$(newLi).html(accountPwPost);
+					//	$(newLi).html(AccountTypePost);
+					//	$(newLi).html(TextNumPost);
+					//	$(newLi).html(AlertOptPost);
+					//	$(newLi).html(ChangePwPost);
+					//	$(newLi).html(descriptionPost);
+					//	$(newLi).html(emailPost);
+						
+						
+						
+						
+						
+						
+						
+						
+					
+					//}
+				
+			
+			
+			
+		//	}
+			
+			
+			
+			
+		//	localStorage.setItem(newId, json.startdate); 
+		//	console.log (newId);
+		//	var date = localStorage.getItem(newId, json.startdate);
+			
+		//	console.log ("This is the Date from Local Storage " + date);
+			
+			// Create UL tag
+			//var newUl = document.createElement("ul");
+			var newUl = $("<ul></ul>");
+			$(newUl).appendTo(displayHere);
+//			$(displayHere).append(newUl);
+				
+		//		$("<section>Test</section>").appendTo(newUl);
+			
+			for (var i=0, len=localStorage.length; i<len; i++) {
+//				console.log ([i]);
+				var newLi = $("<li></li>");
+				$(newLi).appendTo(newUl);
+				var anotherLi = $("<li></li>")
+				
+				var key = localStorage.key(i);
+				var correctContact = localStorage.getItem(key);
+				console.log (correctContact);
+				
+				//Take the string from local storage and convert it back to an object by using JSON.parse()
+				//var contact = JSON.parse(correctContact);
+				var anotherUl = $("<ul></ul>");
+				$(anotherUl).appendTo(newLi);
+			
+			//function to get image and right to the screen
+			console.log("json.alertOption is " + json.alertOption);
+		
+		/*	
+			getSureyImage(json.alertOption, anotherUl);
+			for (var n in contact) {
+				var newSubli = document.createElement("li");
+				anotherUl.appendChild(newSubli);
+				
+				var text = contact[n][0] + "  " +contact[n][1]
+				//newSubli.innerHTML = text;
+				$(newSubli).html(text);
+				anotherUl.appendChild(anotherLi);
+				}
+		*/	
+//Call function to Create the edit and delete links
+// ? createLinks(localStorage.key(i), anotherLi);
+			
+	
+//			};	
+		/* ?			
+			// Function to Get the Survey Image and right to the screen for the Contact
+			function getSurveyImage(picName, anotherUl) {
+			console.log ("This is the image section");
+			//alert ("This is the image section");
+				var surveyImageLi = document.createElement("li");
+				anotherUl.appendChild(surveyImageLi)
+				var newPic = document.createElement("img");
+				var setPicSource = newPic.setAttribute("src","images/" + picName + ".png");
+				surveyImageLi.appendChild(newPic);
+				
+				
+		*/
+		
+		
+		
+		
+		
+		
+//		}
+
+
+
+
+
+
+
+
+/*  =============================================================  */
+/*  =========== Add Ajax to Storage and to Screen - End =========  */
+/*  ============================================================== */
 
 
 
@@ -508,8 +1071,8 @@
 					
 				},
 				submitHandler: function() {
-					// var datafromform = valform.serialize();  // Used to pass data via ajax 
-					var datafromform = valform.serializeArray();  // Used to pass data internally using Arrays and Objects
+					 var datafromform = valform.serialize();  // Used to pass data via ajax 
+					//var datafromform = valform.serializeArray();  // Used to pass data internally using Arrays and Objects
 					parseContactList(datafromform);
 					
 				
@@ -687,23 +1250,10 @@
 /*  =================== AJAX Page Pageinit ======================  */
 /*  ============================================================== */
 	
-	$('#aajjaxx').on('pageinit', function(){
-		$.ajax({
-			url      : "xhr/data.json",
-			type     : "GET",
-			dataType : "json",
-			success  : function(json, status) {
-				console.log(status, json);
-			//success	: function(response){
-			//	console.log (response.languages[0].name);
-			},
-			error : function(error, parseerror){
-				console.log("Error: " + error + "\nParse Error: " + parseerror);
-			}
-		});
-		
-		
-		
+	$('#ajaxPage').on('pageinit', function(){
+	
+		emptyAjaxStorage();
+	
 		
 	});	
 
@@ -716,6 +1266,13 @@
 /*  ============================================================== */
 	
 	$('#xmlPage').on('pageinit', function(){
+		
+		emptyXMLStorage();
+		
+		
+		
+	/*	
+		
 		$.ajax({
 			url      : "xhr/data.xml",
 			type     : "GET",
@@ -730,7 +1287,7 @@
 			}
 		});
 		
-		
+	*/	
 		
 		
 	});	
