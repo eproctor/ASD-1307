@@ -30,7 +30,7 @@ var json = {
 			"changePw":			["Change Password in (x) days: ","99"],
 			"email":			["Email Address for Alerts: ","paul@gmail.com"],
 			"description":		["Description of Account: ","Rare Gold Russian Coin 1800's"]
-			}
+			},
 		"poc3": {
 			"startdate": 		["Date of Account Entry: ", "2013-01-27"],
 			"accountName":	 	["Name on Account: ", "Train 1"],

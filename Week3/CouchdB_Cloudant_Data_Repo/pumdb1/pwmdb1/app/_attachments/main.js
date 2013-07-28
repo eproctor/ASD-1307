@@ -181,7 +181,7 @@ var emptyAjaxStorage = function() {
 		
 		
 		$.ajax({
-			url      : "xhr/data.json",
+			url      : "data.json",
 			type     : "GET",
 			dataType : "json",
 			success  : function(data, status) {
