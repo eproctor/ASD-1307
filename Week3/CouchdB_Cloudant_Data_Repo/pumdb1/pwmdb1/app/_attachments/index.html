@@ -73,8 +73,12 @@
 						<p><a href="#formPage" data-role="button" data-icon="arrow-r" data-iconpos="right">Register New Password</a></p>
 					</section>
 			
-			<section><a href="#ajaxPage">Load Remote Data from AJAX</a></section>
-			<section><a href="#xmlPage">Load Remote Data from XML</a></section>
+			<section><a href="#couchAjaxPage">Week 3 - Load Remote Data from Couch Data Base</a></section>
+			<section><a href="#ajaxPage">Week 2 - Load Remote Data from AJAX</a></section>
+			<section><a href="#xmlPage">Week 2 - Load Remote Data from XML</a></section>
+			
+			
+		
 			
 			
 			</section>
@@ -124,7 +128,7 @@
 					
 					<p class="heading"> Benefit:</p>
 					<p> The benefit of the storage unit is to maintain an account's ID, 
-					Password and Description.  The application let’s you know when the 
+					Password and Description.  The application let‚Äôs you know when the 
 					password and account information should be upgraded; according to best
 					 practices.</p>
 						
@@ -409,7 +413,7 @@
 			</section>
 
 				<h2>AJAX Data</h2>
-				<h3>This page pulls remote data from AJAX</h3>
+				<h3>This page pulls remote data from AJAX - Locally</h3>
 						
 				
 				<section id="ajaxDisplay"></section>
@@ -453,7 +457,7 @@
 				   
 			</section>
 	
-				<p>This page pulls Remote Data from XML</p> 
+				<p>This page pulls Remote Data from XML - Locally</p> 
 				
 				<section id="contact"></section>
 				
@@ -471,15 +475,58 @@
 				</nav>
 			</footer>
 				
-			  
-			  
-			  
-			  
-			  
+			
 			  
 			  
 			</section>		  
 			
+			
+			
+		  		
+	  <!--  ------------------------- Page 9 - Couch Ajax Function Call ------------------------- -->
+
+
+
+
+			<section data-role="page" id="couchAjaxPage" data-add-back-btn="true">
+				 <section data-role="header" data-position="fixed">
+				 
+				 <header>
+				<span><img class="logo" src="images/Trunkdrawing.png" alt="LOGO NAME AND DESCRIPTION"></span><h1>Password Management</h1>
+			  </header>
+				   
+			</section>
+			
+					
+				<section>
+					<h2>Couch AJAX Data</h2>
+					<h3>This page pulls remote data from Couch dB - via ajax</h3>
+				</section>
+				
+					<section data-role="content" class="ui-body-a">
+						<ul id="couchAjaxDisplay" data-role="list">
+						</ul>
+					</section>		
+				
+				
+				
+			  
+			  
+			  
+			   
+			  
+			<footer data-role="footer" data-position="fixed" data-id="home">
+				<nav data-role="navbar">
+					<ul>
+						<li><a href="#home" data-icon="star">Home</a></li>
+						<li><a href="#about" data-icon="gear">About</a></li>
+						<li><a href="#displayPage" data-icon="search">Browse</a></li>
+					</ul>
+				</nav>
+			</footer>
+				
+			  
+			  </section>			
 			
 	  
 	  
@@ -495,7 +542,8 @@
 	  <!-- script type="text/javascript" src="http://ajax.googleapis.com/ajax/xhr/data.json"></script -->
 	  <script type="text/javascript" src="json.js"></script>
 	  <script type="text/javascript" src="main.js"></script>
-	  <script src="jquery.couch.js"></script>
+	  <!-- script type="text/javascript" src="main_couch.js"></script --> 
+	  <!-- script src="jquery.couch.js"></script -->
 	  
 	
 	</body>

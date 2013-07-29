@@ -70,7 +70,7 @@
 
 
 
-/* ========== Display Ajax onto Screen  - Begin ========== */
+/* ========== Display Ajax onto Screen  - Begin - TESTED GOOD ========== */
 
 
 	var displayAjax = function() {
@@ -131,7 +131,130 @@
 
 
 
-/* ========== Display Ajax onto Screen  - End ========== */
+/* ========== Display Ajax onto Screen  - End - TESTED GOOD ========== */
+
+
+
+
+
+/* ========== */
+
+
+
+
+
+
+/* ========== Display Ajax onto Screen  - Begin TESTED GOOD ========== */
+
+
+	var displayCouchEntries = function() {
+		alert ("Display Ajax Entries");
+		
+		
+			
+		$.ajax({
+			"url": "_view/passwordaccount1",
+			"dataType":	"json",
+			"success": function(data) {
+				console.log(data);
+				$.each(data.rows, function(index, value){
+				  console.log (value);
+				  var startdate = value.value.startdate;
+				  var accountName = value.value.accountName;
+				  var accountId = value.value.accountId;
+				  var accountPw = value.value.accountPw;
+				  var accountType = value.value.accountType;
+				  var textNumber = value.value.textNumber;
+				  var alertOption = value.value.alertOption;
+				  var changePw = value.value.changePw;
+				  var email = value.value.email;
+				  var description = value.value.description;
+		
+		
+				//$("section#couchAjaxDisplay").append("<ul></ul>");
+				
+				$("#couchAjaxDisplay").append(
+			
+				
+					$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(startdate)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(accountName)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(accountId)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(accountPw)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(accountType)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(textNumber)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(alertOption)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(changePw)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(email)
+						),
+						
+						$("<li>").append(
+						$("<a>").attr("href", "#")
+							.text(description)
+						)
+							
+							
+							
+				);
+				
+//alert ("1");
+						
+				});
+			//	$("#couchAjaxDisplay").listview("refresh");
+			}
+		});
+	
+}		
+		
+
+
+
+/* ========== Display Ajax onto Screen  - End - TESTED GOOD ========== */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -207,6 +330,40 @@ var emptyAjaxStorage = function() {
 
 
 /* ========== Check for Ajax Empty Storage - End - TESTED GOOD ========== */
+
+
+
+
+
+/* ========== Check for Couch Ajax Empty Storage - Begin - TESTED GOOD ========== */
+
+var emptyCouchStorage = function() {
+console.log("Empty Couch Storage Function");
+
+	if (localStorage.length===0) {
+	
+		alert ("Local Storage is Empty.  Couch dB Ajax - Testing Data is added");
+		console.log ("The storage is empty. Couch dB Ajax - Testing Data is added");
+		//fillCoutchTestData();
+		displayCouchEntries();
+		
+	}	
+}
+
+
+
+
+
+/* ========== Check for Couch Ajax Empty Storage - End - TESTED GOOD ========== */
+
+
+
+
+
+
+
+
+
 
 
 
@@ -897,6 +1054,32 @@ var emptyXMLStorage = function() {
 		
 		
 		
+		
+		/* ========== Fill Storage with Test Data - Begin ========== */
+		
+		
+		var fillCoutchTestData = function() {
+			for (var n in json) {
+				var newId 			= Math.random(); 
+				localStorage.setItem(newId, JSON.stringify(json[n])); 
+			}
+			
+		}
+		
+		
+
+		/* ========== Fill Storage with Test Data End  ========== */
+
+
+
+
+
+		
+		
+		
+		
+		
+		
 		/* ========== Fill Storage with Test Data - Begin ========== */
 		
 		
@@ -1241,6 +1424,23 @@ var emptyXMLStorage = function() {
 		
 		
 	});	
+
+
+	
+		
+/*  ============================================================== */	
+/*  =================== Couch dB AJAX Page Pageinit ======================  */
+/*  ============================================================== */
+	
+	$('#couchAjaxPage').on('pageinit', function(){
+	
+	
+		console.log ("Couch DataBase Page via Ajax Ready ");
+		emptyCouchStorage();
+	
+		
+	});	
+
 
 
 
