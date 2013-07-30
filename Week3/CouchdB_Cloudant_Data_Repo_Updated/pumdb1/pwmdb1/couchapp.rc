@@ -1,0 +1,10 @@
+{
+  "env": {
+    "local": {
+      "db": "http://127.0.0.1:5984/pwmdb1"
+    },
+    "cloudant": {
+      "db": "https://kewonliandowedremostersu:d78iKf4pUnIEo5K4BYX0OgIt@eproctor.cloudant.com/cdbpw1"
+    }
+  }
+}
