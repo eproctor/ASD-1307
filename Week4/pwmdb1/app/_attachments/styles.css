@@ -1,0 +1,326 @@
+/* Name: Eugene Proctor :: Project 1 :: ASD 1307 */
+
+
+/*
+title: Web App Part 1 - css file 
+by: Eugene Proctor   Term: 1307
+for: ASD - 1307 - CSS Selectors
+*/
+
+
+#yesToAlerts {
+
+	display:	none;
+
+
+}
+
+
+h1 {
+	text-align: center;
+	font-family: "myriad pro", Times, serif;
+//	border: 2px solid black;
+	//padding: 10px;
+	font-weight: normal;
+	font-size: 1.5em;
+	margin-top: -36px;
+	margin-left: 35px;
+	
+	
+}
+
+
+
+
+
+
+.onbutton {
+	margin-left: 68%;
+	margin-bottom: 0px;
+	margin-top: -70px;
+//	width: 182px;
+//	height: 95px;
+	width: 65px;
+	height: 72px;
+
+}
+
+
+
+#greenon {
+
+//text-decoration: underline;
+color: green;
+
+
+}
+
+
+
+#borderLine {
+
+	margin-bottom: 16px;
+
+}
+
+
+
+
+
+#browseButton {
+
+	margin-top: 20px;
+
+}
+
+
+#saveHeader {
+
+	margin-left: -5px;
+
+}
+
+
+
+#shareWithFriends {
+
+	margin-left: 33px; 
+	margin-top: -16px;
+	margin-bottom: 40px;
+
+
+}
+
+
+
+#bottomLine {
+
+	margin-bottom: -20px
+
+
+}
+
+
+#key {
+	color: red;
+
+}
+
+
+#description {
+
+	width: 256px;
+	height: 45px;
+
+}
+
+
+
+
+div.ui-input-search.ui-shadow-inset.ui-btn-corner-all.ui-btn-shadow.ui-icon-searchfield.ui-body-d.ui-mini,
+div.ui-input-text.ui-shadow-inset.ui-corner-all.ui-btn-shadow.ui-body-d,
+textarea#description.ui-input-text.ui-body-d.ui-corner-all.ui-shadow-inset,
+input#changePw.ui-input-text.ui-body-d.ui-corner-all.ui-shadow-inset.ui-slider-input,
+div.ui-input-search.ui-shadow-inset.ui-btn-corner-all.ui-btn-shadow.ui-icon-searchfield.ui-body-c {
+
+	background-color: white;
+
+}
+
+
+
+#displayClearLinks {
+
+	text-align: center;
+	margin: 20px 20px;
+
+
+
+}
+
+
+
+
+#errorsLink {
+
+	display:none;
+
+}
+
+
+
+
+
+
+
+img {
+
+	list-style: none;
+	margin-top: 40px;
+	width: 254px;
+	height: 31px;
+
+}
+
+
+
+
+ul {
+	
+	list-style: none;
+	margin-left: -25px;
+
+
+}
+
+
+li {
+	margin-left: 0px;
+	list-style: none;
+	
+}
+
+
+
+
+img.logo {
+
+	list-style: none;
+	margin-left: 10px;
+	width: 39px;
+	height: 31px;
+
+}
+
+
+label, input {
+	margin-bottom: 10px;
+}
+
+
+
+.moreSpace {
+
+	margin-bottom: 20px;
+}
+
+
+
+.moreSpaceTwo {
+
+	margin-bottom: 15px; 
+ 
+}
+
+
+.moreSpaceSurvey {
+
+	margin-bottom: 5px;
+
+}
+
+
+
+.moreSpaceDes {
+
+	margin-bottom: 0px;
+	margin-top: 40px;
+
+}
+
+
+
+.moreSpaceUp {
+
+	margin-top: 50px;
+	border: 1px solid yellow;
+	
+}
+
+
+.moreSpace li {
+
+	margin-bottom: 20px;
+}
+
+
+
+
+.blue {
+	color: #0063ec; //blue
+	
+
+}
+
+
+.turnGreenTravel {
+
+	margin-top: 20px;
+
+}
+
+
+
+h2 {
+	font-family: "myriad pro", Times, serif;
+	text-align: left;
+}
+
+
+
+
+
+
+label.error {
+
+	display:	block;
+	margin: 	10px 0;
+	color: 		red;
+
+
+}
+
+
+
+
+body {
+//	background: #e1b016; 	
+	overflow:	scroll;
+
+
+}
+
+
+
+
+a:hover {
+	color: #f8620a; /* orange */
+	outline: none;
+}
+
+a {
+	text-decoration: none;
+	color: #0063ec;  /* blue */
+}
+
+p {
+	color: #000000;
+	font-family: "myriad pro", Times, serif;
+	line-height: 1.5em;
+	
+}
+
+
+
+#errorValidation {
+	
+		color: red;
+}
+
+
+
+
+
+
+
+
