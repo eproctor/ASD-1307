@@ -1,6 +1,6 @@
 function (doc) {
-  if (doc._id) {
-    emit(doc._id);
+  if (doc.accountType) {
+    emit(doc._id, doc.accountType);
   }
 };
 
