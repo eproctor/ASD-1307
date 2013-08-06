@@ -52,8 +52,19 @@
 				
 					<section data-role="content" class="ui-body-a">
 						<ul id="account1Display" data-role="list">
+							<li class="delete"></li>
 						</ul>
 					</section>		
+				
+
+
+<a class="delete" data-id="myid" data-rev="myrev">Delete</a>
+				
+					
+					
+
+
+
 				
 				
 				
@@ -98,7 +109,145 @@
 	  
 	  
 
-	  
+					
+	<script>			
+	var displayCouchJqueryEntries1 = function() {
+		alert ("Displaying Couch Jquery Entries - View Password Entries");
+		
+				$.couch.db("pwmdb1").view("app/passwordaccount1", {
+					success: function(data) {
+						console.log(data);
+						$.each(data.rows, function(index, value){
+						  console.log (value);
+						  var startdate = value.value.startdate;
+						  var accountName = value.value.accountName;
+						  var accountId = value.value.accountId;
+						  var accountPw = value.value.accountPw;
+						  var accountType = value.value.accountType;
+						  var textNumber = value.value.textNumber;
+						  var alertOption = value.value.alertOption;
+						  var changePw = value.value.changePw;
+						  var email = value.value.email;
+						  var description = value.value.description;
+						  var id = value.id;
+						  var blankSpace = ". ";
+				
+				
+						//$("section#couchAjaxDisplay").append("<ul></ul>");
+						
+						$("#account1Display").append(
+					
+										
+							$("<li>").append(
+								$("<a>").attr("href", "#")
+									.text(id)
+								),
+							
+							
+								
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(startdate)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(accountName)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(accountId)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(accountPw)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(accountType)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(textNumber)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(alertOption)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(changePw)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(email)
+							),
+							
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(description)
+							),
+								
+														
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(blankSpace)
+							),
+							
+									
+							$("<li>").append(
+							$("<a>").attr("href", "#")
+								.text(blankSpace)
+							),
+							
+									
+							$("<li>").append(
+						//	$("<a>").attr(class='delete' data-id='myid' data-rev='myrev')
+							$("<a class='delete' data-id='myid' data-rev='myrev'>")
+								.text("Delete")
+							)
+							
+
+					);
+
+
+						
+				});
+			//	$("#couchAjaxDisplay").listview("refresh");
+			}
+		});
+	
+}		
+		
+			
+$(".delete").on("click", function(){
+	var doc = {};
+	doc._id = $(this).data("id");
+	doc._rev = $(this).data("rev");
+	
+	$.couch.db("pwmdb1").removeDoc(doc, {
+		success: function(data) {
+			console.log ("Item deleted from Couch dB: " + data);
+		},
+		error: function(status) {
+			console.log ("item could not be delete because of an error: " + status);
+		}
+	});
+});	
+
+					
+/* ========== Password List 1 - Display Couch Jquery PLugin onto Screen  - End TESTED GOOD ========== */
+
+
+
+</script>  
 	  
 	  
 

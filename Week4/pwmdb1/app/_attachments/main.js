@@ -178,11 +178,11 @@
 				
 				
 				
-	//			window.location.reload();
+				window.location.reload();
 				alert("JSON Data has been saved");	
 				
-	//			window.location = "#home";
-	//			window.location.reload();
+				window.location = "index.html#home";
+				window.location.reload();
 			
 			};
 			
@@ -1038,7 +1038,7 @@
 	var displayCouchJqueryEntries1 = function() {
 		alert ("Displaying Couch Jquery Entries - View Password Entries");
 		
-				$.couch.db("pwmdb1").view("app/passwordaccount1", {
+				$.couch.db("pwmdb1").view("app/accounts", {
 					success: function(data) {
 						console.log(data);
 						$.each(data.rows, function(index, value){
@@ -1129,10 +1129,28 @@
 							$("<li>").append(
 							$("<a>").attr("href", "#")
 								.text(blankSpace)
+							),
+							
+									
+							$("<li>").append(
+						//	$("<a>").attr(class='delete' data-id='myid' data-rev='myrev')
+							$("<a class='delete' data-id='myid' data-rev='myrev'>")
+								.text("Delete")
 							)
+							
 
 					);
 
+
+						
+				});
+			//	$("#couchAjaxDisplay").listview("refresh");
+			}
+		});
+	
+}		
+		
+/*			
 $(".delete").on("click", function(){
 	var doc = {};
 	doc._id = $(this).data("id");
@@ -1147,19 +1165,9 @@ $(".delete").on("click", function(){
 		}
 	});
 });	
-
-
-						
-				});
-			//	$("#couchAjaxDisplay").listview("refresh");
-			}
-		});
-	
-}		
-		
-			
+//<a class="delete" data-id="myid" data-rev="myrev">Delete</a>
 				
-					
+*/					
 					
 					
 /* ========== Password List 1 - Display Couch Jquery PLugin onto Screen  - End TESTED GOOD ========== */
@@ -1177,7 +1185,7 @@ $(".delete").on("click", function(){
 	var displayCouchJqueryEntries2 = function() {
 		//alert ("Displaying Couch Jquery Entries - View Password Entries");
 		
-				$.couch.db("pwmdb1").view("app/passwordaccount2", {
+				$.couch.db("pwmdb1").view("app/accounts", {
 					success: function(data) {
 						console.log(data);
 						$.each(data.rows, function(index, value){
@@ -1305,7 +1313,7 @@ $(".delete").on("click", function(){
 	var displayCouchJqueryEntries3 = function() {
 		//alert ("Displaying Couch Jquery Entries - View Password Entries");
 		
-				$.couch.db("pwmdb1").view("app/passwordaccount3", {
+				$.couch.db("pwmdb1").view("app/accounts", {
 					success: function(data) {
 						console.log(data);
 						$.each(data.rows, function(index, value){
@@ -1436,7 +1444,7 @@ $(".delete").on("click", function(){
 	var displayCouchJqueryEntries4 = function() {
 		//alert ("Displaying Couch Jquery Entries - View Password Entries");
 		
-				$.couch.db("pwmdb1").view("app/passwordaccount4", {
+				$.couch.db("pwmdb1").view("app/accounts", {
 					success: function(data) {
 						console.log(data);
 						$.each(data.rows, function(index, value){
@@ -1568,7 +1576,7 @@ $(".delete").on("click", function(){
 	var displayCouchJqueryEntries5 = function() {
 		//alert ("Displaying Couch Jquery Entries - View Password Entries");
 		
-				$.couch.db("pwmdb1").view("app/passwordaccount5", {
+				$.couch.db("pwmdb1").view("app/accounts", {
 					success: function(data) {
 						console.log(data);
 						$.each(data.rows, function(index, value){
@@ -2977,10 +2985,10 @@ var emptyXMLStorage = function() {
 	
 		console.log ("Couch DataBase Page via Jquery Ready ");
 		displayCouchJqueryEntries1();
-		displayCouchJqueryEntries2();
-		displayCouchJqueryEntries3();
-		displayCouchJqueryEntries4();
-		displayCouchJqueryEntries5();
+		//displayCouchJqueryEntries2();
+		//displayCouchJqueryEntries3();
+		//displayCouchJqueryEntries4();
+		//displayCouchJqueryEntries5();
 	
 		
 		
